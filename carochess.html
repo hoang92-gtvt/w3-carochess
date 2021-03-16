@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bàn cơ caro</title>
+</head>
+<body>
+    <h3>Caro Game Simple</h3>
+
+    <p id="carogame"> </p>
+
+    <input type="button" value="Change Value" onclick="changeValue()">
+    <input type="button" value="Change Value2" onclick="changeValue2()">
+
+    <script>
+        let b = document.getElementById("carogame");
+
+        let board = [];
+        let data = "";
+
+        let sohang =5;
+        let socot =5;
+
+        for (let i = 0; i < sohang; i++) {
+            board[i] = new Array();
+            // board[i] = new Array(0, 0, 0, 0, 0);
+        }
+
+        for (let i = 0; i < sohang; i++) {
+            data += "<br/>"; // cộng dấu xuống dòng khi viết xong một hàng
+            for (let j = 0; j < socot; j++) {
+                board[i][j]=".."
+                data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;"// cộng một phần từ của mảng và 2 dấu cách trong 1 hàng
+            }
+        }
+
+        b.innerHTML = data;
+
+
+        function changeValue() {
+            let positionX = prompt("X: ");
+            let positionY = prompt("Y: ");
+            data = "";
+            board[positionX][positionY] = "x";
+            for (let i = 0; i < sohang; i++) {
+                data += "<br/>";
+                for (let j = 0; j < socot; j++) {
+                    data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
+                }
+            }
+            b.innerHTML = "<hr/>" + data;
+        }
+        function changeValue2() {
+            let positionX2 = prompt("X: ");
+            let positionY2 = prompt("Y: ");
+            data = "";
+            board[positionX2][positionY2] = "0";
+            for (let i = 0; i < sohang; i++) {
+                data += "<br/>";
+                for (let j = 0; j < socot; j++) {
+                    data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
+                }
+            }
+            b.innerHTML = "<hr/>" + data;
+        }
+
+    </script>
+</body>
+</html>
